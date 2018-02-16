@@ -13,9 +13,118 @@ html {
   box-sizing: inherit;
 }
 
+a:link { 
+  color: #333; 
+}
+
 body {
   font-family: Georgia, serif;
   font-size: 16px;
   background-color: #eee;
-  color: #333;
+  color: #333; 
+}
+
+.footer {
+  padding-top: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid black;
+  background-color: #eee;
+  padding-bottom: 10px;
+
+}
+
+.footer-text {
+  padding: 0px 0px 10px 50px;
+}
+
+.form { 
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.form-all {
+  padding-top: 120px;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+  border-radius: 4px;
+}
+
+label {
+  width:150px;
+  margin-bottom:10px;
+}
+input {
+  font-size: 24px;
+  width:250px;
+  margin-bottom:10px;
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
+
+
+button {
+  margin-top: 10px;
+  font-size: 24px;
+  border-radius: 2px;
+  padding: 5px 12px;
+  color: black;
+  border: 1px solid #555555;
+}
+
+.table-css {
+  padding-top: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.table-link {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 70%;
+  padding: 2px;
+}
+
+td {
+  padding: 2px;
+}
+
+th {
+  background-color: rgb(202, 200, 200);
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  padding: 2px;
+}
+
+.success {
+  padding-top: 80px;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.success2 {
+  padding-top: 5px;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
 }

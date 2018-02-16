@@ -1,11 +1,13 @@
 extends layout
 
 block content
-    form(method='POST' action='/login')
-        div.form 
-            lable(for='name') Notendanafn: 
-            input(type='text', name='username', requred='true')
-        div.form 
-            lable(for='name') Password: 
-            input(type='password', name='password', requred='true')
-        button(type='submit') Senda 
+    div.form-all
+        div.form
+            form(method='POST' action='/login')
+                div.form-group
+                    lable(for='name') Notendanafn
+                    input(type='text', name='username', requred='true')
+                div.form-group
+                    lable(for='name') Password
+                    input(type='password', name='password', requred='true')
+                button(type='submit') Senda 

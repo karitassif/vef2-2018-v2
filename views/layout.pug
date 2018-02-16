@@ -7,19 +7,21 @@ html(lang="is")
 
   body
 
-    if user
-      div.menu
-        div.menu-text
-          p Innskráður notandi: #{user.name}
-        div.menu-links  
-          a(href="/") Forsíða
-          a(href="admin") Stjórnsíða
-          a(href="logout") Útskráning
-    else
-      div.menu
-        div.menu-text
-        div.menu-links
-          a(href="/") Forsíða
-          a(href="login") Innskráning
     block content
+    div.footer
+      if user
+        div.footer-text
+          p Innskráður notandi: #{user.name}
+        div.footer-text  
+          a(href="/") Forsíða
+        div.footer-text
+          a(href="admin") Stjórnsíða
+        div.footer-text
+          a(href="logout") Útskráning
+      else
+        div.footer-text
+          a(href="/") Forsíða
+        div.footer-text
+          a(href="login") Innskráning
+    
 

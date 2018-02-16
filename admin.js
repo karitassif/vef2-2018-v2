@@ -20,33 +20,21 @@ function ensureLoggedIn(req, res, next) {
     return res.redirect('/login');
   }
 
-  
-
-  
-// ensureLoggedIn,
-router.get('/',  async (req, res) => {
+router.get('/', ensureLoggedIn, async (req, res) => {
     const data = await sql.select()
     //console.log(forms);
 
     res.render('table', { list: data });
 });
 
-  
-
-
 
 /*
-
-
-
 router.get('/admin', ensureLoggedIn, async (req, res) => {
 
     res.render('form', {});
 });
 
 */
-
-
 
 async function csvhandler(req, res) {
     const result = await sql.select().catch(err => {

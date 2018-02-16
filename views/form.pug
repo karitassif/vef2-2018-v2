@@ -1,21 +1,25 @@
 extends layout
 
 block content
-  if errors
-    each error in errors
-      p= error
-  form(method="POST" action="/addForm")
-    div.form-group
-      label(for='name') Nafn:
-      input#name.form-control(type='text', placeholder='Nafn' name='name')
-    div.form-group
-      label(for='email') Email:
-      input#email.form-control(type='email', placeholder='name@email.com' name='email')
-    div.form-group
-      label(for='ssn') Kennitala:
-      input#ssn.form-control(type='text', placeholder='000000-0000' name='ssn')
-    div.form-group
-      label(for='count') Fjöldi:
-      input#fjoldi.form-control(type='number', placeholder='1' name='count')
-    button(type='submit') Skrá
-  
+  div.form-all
+    if errors
+      each error in errors
+        div.error
+          ul
+            li= error 
+    div.form
+      form(method="POST" action="/addForm")
+        div.form-group
+          label(for='name') Nafn
+          input#name.form-control(type='text', placeholder='' name='name')
+        div.form-group
+          label(for='email') Email
+          input#email.form-control(type='email', placeholder='' name='email')
+        div.form-group
+          label(for='ssn') Kennitala
+          input#ssn.form-control(type='text', placeholder='' name='ssn')
+        div.form-group
+          label(for='count') Fjöldi
+          input#fjoldi.form-control(type='number', placeholder='' name='count')
+        button(type='submit') Senda
+    

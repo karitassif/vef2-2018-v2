@@ -7,7 +7,7 @@ const session = require('express-session');
 const passport = require('passport');
 const { Strategy } = require('passport-local');
 const users = require('./users');
-//const notes = require('./notes');
+// const notes = require('./notes');
 
 const form = require('./form');
 const admin = require('./admin');
@@ -20,7 +20,6 @@ app.set('view engine', 'pug');
 const sessionSecret = 'leyndarmál';
 
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 
 app.use(cookieParser());
@@ -63,7 +62,7 @@ passport.deserializeUser((id, done) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
-//app.use(admin);
+// app.use(admin);
 
 app.use((req, res, next) => {
   if (req.isAuthenticated()) {
@@ -94,7 +93,7 @@ app.get('/', (req, res) => {
 }); */
 
 app.get('/login', (req, res) => {
-  res.render('login')
+  res.render('login');
 });
 
 app.post(
@@ -102,9 +101,7 @@ app.post(
   passport.authenticate('local', {
     failureRedirect: '/login',
   }),
-  (req, res) => {
-    return res.redirect('/');
-  },
+  (req, res) => res.redirect('/'),
 );
 
 app.get('/logout', (req, res) => {

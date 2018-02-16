@@ -1,22 +1,23 @@
 extends layout
 
 block content
-    div 
+    div.table-css      
+        table  
+            thead
+                tr: th Id
+                    th Date
+                    th Name
+                    th Email
+                    th SSN
+                    th Count
+            tbody 
+                each row in list 
+                    tr 
+                        td= row['id']
+                        td= row['date']
+                        td= row['name']
+                        td= row['email']
+                        td= row['ssn']
+                        td= row['count']
+    div.table-link    
         a(href="/admin/csv") Download csv
-    table  
-        thead
-            tr: th Id
-                th Date
-                th Name
-                th Email
-                th SSN
-                th Count
-        tbody 
-            each row in list 
-                tr 
-                    td= row['id']
-                    td= row['date']
-                    td= row['name']
-                    td= row['email']
-                    td= row['ssn']
-                    td= row['count']
