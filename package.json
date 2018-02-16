@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "start": "node app.js",
     "eslint": "eslint *.js **/*.js --fix",
-    "stylelint": "stylelint *.css **/*.css",
-    "start": "node app.js"
+    "stylelint": "stylelint *.css **/*.css"
   },
   "devDependencies": {
     "eslint": "^4.17.0",
