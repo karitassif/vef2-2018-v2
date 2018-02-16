@@ -1,4 +1,21 @@
 extends layout
 
 block content
-  p Form!
+  if errors
+    each error in errors
+      p= error
+  form(method="POST" action="/addForm")
+    div.form-group
+      label(for='name') Nafn:
+      input#name.form-control(type='text', placeholder='Nafn' name='name')
+    div.form-group
+      label(for='email') Email:
+      input#email.form-control(type='email', placeholder='name@email.com' name='email')
+    div.form-group
+      label(for='ssn') Kennitala:
+      input#ssn.form-control(type='text', placeholder='000000-0000' name='ssn')
+    div.form-group
+      label(for='count') Fjöldi:
+      input#fjoldi.form-control(type='number', placeholder='1' name='count')
+    button(type='submit') Skrá
+  

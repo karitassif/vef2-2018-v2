@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    form(method='POST' action='/login')
+        div.form 
+            lable(for='name') Notendanafn: 
+            input(type='text', name='username', requred='true')
+        div.form 
+            lable(for='name') Password: 
+            input(type='password', name='password', requred='true')
+        button(type='submit') Senda 

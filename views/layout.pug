@@ -6,4 +6,20 @@ html(lang="is")
     title=title
 
   body
+
+    if user
+      div.menu
+        div.menu-text
+          p Innskráður notandi: #{user.name}
+        div.menu-links  
+          a(href="/") Forsíða
+          a(href="admin") Stjórnsíða
+          a(href="logout") Útskráning
+    else
+      div.menu
+        div.menu-text
+        div.menu-links
+          a(href="/") Forsíða
+          a(href="login") Innskráning
     block content
+
