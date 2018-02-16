@@ -7,7 +7,6 @@ const session = require('express-session');
 const passport = require('passport');
 const { Strategy } = require('passport-local');
 const users = require('./users');
-// const notes = require('./notes');
 
 const form = require('./form');
 const admin = require('./admin');
@@ -62,11 +61,8 @@ passport.deserializeUser((id, done) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use(admin);
-
 app.use((req, res, next) => {
   if (req.isAuthenticated()) {
-    // getum núna notað user í viewum
     res.locals.user = req.user;
   }
 
@@ -75,22 +71,6 @@ app.use((req, res, next) => {
 
 app.use('/', form);
 app.use('/admin', admin);
-
-
-/*
-app.get('/', (req, res) => {
-  if (req.isAuthenticated()) {
-    return res.send(`
-      <p>Innskráning sem ${req.user.username}</p>
-      <p><a href="/logout">Útskráning</a></p>
-      <p><a href="/admin">Skoða leyndarmál</a></p>
-    `);
-  }
-
-  return res.send(`
-    <p><a href="/login">Innskráning</a></p>
-  `);
-}); */
 
 app.get('/login', (req, res) => {
   res.render('login');

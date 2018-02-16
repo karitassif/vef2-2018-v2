@@ -1,22 +1,12 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator/check');
 
-// const { Client } = require('pg')
 const xss = require('xss');
 const sql = require('./sql');
-const cookieParser = require('cookie-parser');
-const { Strategy } = require('passport-local');
-const users = require('./users');
-const csv = require('express-csv');
-
-const connectionString = process.env.DATABASE_URL ||
-'postgres://postgres:29282322@localhost:5432/vef2-2018-v2';
-
 
 const router = express.Router();
 
 router.use(express.urlencoded({ extended: true }));
-
 
 router.post(
   '/addForm',
@@ -29,12 +19,12 @@ router.post(
   check('ssn').matches(/^[0-9]{6}-?[0-9]{4}$/).withMessage('Kennitala verður að vera á formi 000000-0000'),
   check('count').isInt({ min: 1 }).withMessage('Fjöldi verður að vera meira en 0'),
 
-  async (req, res) => {
+  async (req, res) => { // eslint-disable-line
     const {
-      name = '',
-      email = '',
-      ssn = '',
-      count = '1',
+      name = '', // eslint-disable-line
+      email = '', // eslint-disable-line
+      ssn = '', // eslint-disable-line
+      count = '1', // eslint-disable-line
     } = req.body;
 
     const errors = validationResult(req);
@@ -44,33 +34,11 @@ router.post(
 
       return res.render('form', { errors: errorMessages });
     }
-    console.log(req.body);
-    const result = await sql.addForm(xss(req.body));
+    await sql.addForm(xss(req.body));
     res.render('success');
   },
 );
 
-/* await addForm(xss(form));
-
-   res.redirect('/admin');
-}); */
-
-/*
-const client = new Client({ connectionString });
-client.connect();
-
-
-client.query('SELECT * FROM test;', (err, res) => {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log(res.rows);
-  }
-
-  client.end();
-});
-
-*/
 
 function form(req, res) {
   const data = {};

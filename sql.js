@@ -4,7 +4,7 @@ const xss = require('xss'); //eslint-disable-line
 const connectionString = process.env.DATABASE_URL ||
 'postgres://postgres:29282322@localhost/vef2-2018-v2';
 
-async function addForm(form) {
+async function addForm(form) { // eslint-disable-line
   const client = new Client({ connectionString });
   client.connect();
   try {
@@ -17,8 +17,7 @@ async function addForm(form) {
   await client.end();
 }
 
-async function select() {
-  console.log('er í select falpiunu');
+async function select() { // eslint-disable-line
   const client = new Client({ connectionString });
   client.connect();
   try {
